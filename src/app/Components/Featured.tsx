@@ -43,7 +43,7 @@ export default function Featured(){
                      <Image src={"/Womanwearing.png"}
                       width={500}
                       height={500}
-                      alt="playstationz" 
+                      alt="Woman Wearing" 
                       ></Image>
                      </div>
                   </div>

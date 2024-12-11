@@ -133,6 +133,7 @@ function Explore(){
                    {/* box complete */}
                    
                 </div>
+                
                 <div className="flex sm:flex-col md:flex-row lg:flex-row justify-between mt-5 sm:flex-nowrap md:flex-wrap lg:flex-nowrap">
                     {/* box1 */}
                     <div className='pt-4'>
