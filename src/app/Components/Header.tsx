@@ -3,112 +3,87 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="flex flex-col border-b-[0.5px] pb-4 border-[#000000]">
-      {/* Top 01 */}
-      <div className="w-full h-[48px] bg-[#000000] flex items-center caret-transparent">
-        <div className="container mx-auto flex flex-wrap items-center justify-between px-4 sm:px-6 md:px-8">
-          {/* Heading and Link */}
-          <div className="flex items-center justify-center gap-2 text-[12px] sm:text-[14px] leading-[24px] text-[#FAFAFA] text-center">
-            <h3 className="text-nowrap tracking-wide poppins-regular-400">
-              Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
-            </h3>
-            <Link
-              href="/"
-              className="poppins-regular-600 underline ml-2 sm:ml-9"
-            >
-              Shop Now
-            </Link>
-          </div>
-
-          {/* Language Selector */}
-          <div className="flex items-center gap-2 cursor-pointer">
-            <p className="text-[#FAFAFA]">English</p>
-            <Image
-              src="/DropDown.png"
-              alt="Dropdown"
-              height={20}
-              width={20}
-              className="h-auto w-auto"
-            />
-          </div>
+    <header className="border-b border-black pb-4">
+      {/* Top Banner */}
+      <div className="bg-black text-white text-center text-sm py-2">
+        <div className="container mx-auto flex items-center justify-between px-4">
+          <p className="truncate">
+            Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+          </p>
+          <Link href="/" className="underline font-semibold ml-4">
+            Shop Now
+          </Link>
         </div>
       </div>
 
-      {/* Top 02 */}
-      <div className="container mx-auto flex flex-wrap items-center justify-between px-4 sm:px-6 md:px-8 pt-4">
-        {/* Logo and Navigation */}
-        <div className="flex items-center justify-between w-full lg:w-auto gap-4">
-          {/* Logo */}
-          <Image
-            src="/Logo.png"
-            alt="Logo"
-            height={24}
-            width={118}
-            className="h-auto max-w-full"
-          />
+      {/* Main Header */}
+      <div className="container mx-auto px-4 py-4 flex flex-col lg:flex-row items-center justify-between gap-4">
+        {/* Logo */}
+        <Image
+          src="/Logo.png"
+          alt="Logo"
+          height={24}
+          width={118}
+          className="h-auto"
+        />
 
-          {/* Navigation */}
-          <nav className="hidden lg:flex text-[16px] poppins-regular-400 gap-6 text-[#000000]">
-            <ul className="flex gap-6">
-              <li className="border-b-[1px] border-transparent hover:border-black cursor-pointer">
-                Home
-              </li>
-              <li className="border-b-[1px] border-transparent hover:border-black cursor-pointer">
-                Contact
-              </li>
-              <li className="border-b-[1px] border-transparent hover:border-black cursor-pointer">
-                About
-              </li>
-              <li className="border-b-[1px] border-transparent hover:border-black cursor-pointer">
-                Sign Up
-              </li>
-            </ul>
-          </nav>
-
-         
-        </div>
+        {/* Navigation */}
+        <nav className="hidden lg:flex gap-6 text-base">
+          {['Home', 'Contact', 'About', 'Sign Up'].map((item) => (
+            <Link
+              key={item}
+              href={`/${item.toLowerCase()}`}
+              className="hover:border-b border-black pb-1"
+            >
+              {item}
+            </Link>
+          ))}
+        </nav>
 
         {/* Search and Icons */}
-        <div className="flex items-center gap-4 w-full lg:w-auto mt-4 lg:mt-0">
-          {/* Search Bar */}
-          <div className="flex items-center gap-2 bg-[#F5F5F5] py-1 px-2 rounded-md w-full sm:w-auto">
+        <div className="flex items-center gap-4 w-full lg:w-auto">
+          {/* Search */}
+          <div className="flex items-center bg-gray-100 px-2 py-1 rounded-md flex-grow lg:flex-grow-0">
             <input
               type="text"
               placeholder="What are you looking for?"
-              className="placeholder:text-[12px] bg-transparent outline-none w-full"
+              className="bg-transparent text-sm placeholder-gray-500 w-full outline-none"
             />
             <Image
               src="/Search.png"
               alt="Search Icon"
               height={24}
               width={24}
-              className="h-auto w-auto cursor-pointer"
+              className="cursor-pointer"
             />
           </div>
 
-          {/* Favorite Icon */}
-          <div>
+          {/* Icons */}
+          {["/Heart.png", "/Shop.png"].map((src, index) => (
             <Image
-              src="/Heart.png"
-              alt="Favorite"
+              key={index}
+              src={src}
+              alt={index === 0 ? "Favorite" : "Cart"}
               height={24}
               width={24}
-              className="h-auto w-auto cursor-pointer"
+              className="cursor-pointer"
             />
-          </div>
-
-          {/* Cart Icon */}
-          <div>
-            <Image
-              src="/Shop.png"
-              alt="Cart"
-              height={24}
-              width={24}
-              className="h-auto w-auto cursor-pointer"
-            />
-          </div>
+          ))}
         </div>
       </div>
+
+      {/* Mobile Navigation */}
+      <nav className="lg:hidden flex justify-between mt-2">
+        {['Home', 'Contact', 'About', 'Sign Up'].map((item) => (
+          <Link
+            key={item}
+            href={`/${item.toLowerCase()}`}
+            className="text-sm text-center flex-1 border-t pt-2 border-gray-300"
+          >
+            {item}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 };

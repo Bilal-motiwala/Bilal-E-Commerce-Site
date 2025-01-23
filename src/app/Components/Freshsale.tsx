@@ -2,202 +2,113 @@ import Image from "next/image";
 
 function Freshsale() {
   return (
-    <main>
-      <div className="w-full flex justify-center items-center mt-10 mb-1">
-        {/* container */}
-        <div className="w-[90%] sm:w-[95%] md:w-[90%] lg:w-[80%]">
-          {/* container boxes */}
+    <main className="mt-10 mb-5">
+      {/* Header Section */}
+      <div className="flex justify-center items-center">
+        <div className="w-[90%] lg:w-[80%]">
           <div className="flex flex-col">
-            <h3 className="text-red-500 font-bold border-l-8 border-red-400 pl-3 ml-1">Today&apos;s</h3>
-            <div className="flex items-center">
-              <h1 className="text-gray-800 font-bold sm:text-md md:text-3xl lg:text-3xl pt-4">Fresh Sales</h1>
+            <h3 className="text-red-500 font-bold border-l-4 border-red-400 pl-3">Today&apos;s</h3>
+            <div className="flex items-center justify-between">
+              <h1 className="text-gray-800 font-bold text-2xl lg:text-3xl">Fresh Sales</h1>
               <Image
                 src="/Freshsale.png"
-                width={200}
-                height={200}
-                className="ml-10 sm:hidden md:block"
-                alt="fresh sales"
+                width={150}
+                height={150}
+                className="hidden md:block"
+                alt="Fresh sales banner"
               />
             </div>
           </div>
 
-          <div className="flex sm:flex-col md:flex-row lg:flex-row justify-between mt-5 sm:flex-nowrap md:flex-wrap lg:flex-nowrap">
-            {/* box1 */}
-            <div className="sm:w-full md:w-[300px] lg:w-[220px] mb-5">
-              <div className="group shadow-md bg-neutral-100 h-[180px] flex justify-center items-center cursor-pointer relative">
-                <Image
-                  src="/Gamepad.png"
-                  width={150}
-                  height={100}
-                  alt="GamePad"
-                />
-                <span className="bg-red-500 px-2 rounded-md text-white absolute top-0 left-0">-40%</span>
-                <span className="absolute top-1 right-1 text-red rounded-full">
-                  <Image
-                    className="cursor-pointer ml-44"
-                    src="/Heart.png"
-                    alt="icon-explorer"
-                    height={32}
-                    width={18}
-                  />
-                  <Image
-                    className="cursor-pointer mt-3 ml-44"
-                    src="/Eye.png"
-                    alt="icon-explorer"
-                    height={32}
-                    width={24}
-                  />
-                </span>
-
-                {/* Add to Cart */}
-                <button className="w-full absolute bottom-0 bg-black text-white px-4 py-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {/* Product Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6">
+            {products.map((product, index) => (
+              <div key={index} className="bg-neutral-100 shadow-md rounded-md overflow-hidden group relative">
+                <div className="flex justify-center items-center h-[180px]">
+                  <Image src={product.image} width={150} height={100} alt={product.name} />
+                  <span className="bg-red-500 text-white text-xs px-2 py-1 rounded absolute top-2 left-2">
+                    {product.discount}
+                  </span>
+                  <div className="absolute top-2 right-2 flex flex-col space-y-2">
+                    <Image
+                      className="cursor-pointer"
+                      src="/Heart.png"
+                      alt="Favorite icon"
+                      height={20}
+                      width={20}
+                    />
+                    <Image
+                      className="cursor-pointer"
+                      src="/Eye.png"
+                      alt="View icon"
+                      height={20}
+                      width={20}
+                    />
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h2 className="font-bold text-sm mb-2">{product.name}</h2>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-red-500 font-bold">{product.price}</span>
+                    <span className="text-gray-400 line-through text-sm">{product.oldPrice}</span>
+                  </div>
+                  <div className="flex items-center space-x-1 text-yellow-400 text-xs mt-2">
+                    <Image src="/Fivestar.png" alt="Rating" width={100} height={20} />
+                    <span className="text-gray-400">({product.rating})</span>
+                  </div>
+                </div>
+                <button className="w-full py-2 bg-black text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Add to Cart
                 </button>
               </div>
-              <h1 className="font-bold font-sans pt-2">HAVIT HV-G92 Gamepad</h1>
-              <span className="text-red-500 font-bold">$120</span>
-              <span className="text-gray-400 font-bold line-through ml-2">$160</span>
-              <div className="flex space-x-1 ml-1 text-yellow-400 text-md pt-1 mb-5">
-                <img src="/Fivestar.png" alt="Fivestar" />
-                <span className="text-gray-400 mt-1">(88)</span>
-              </div>
-            </div>
-
-            {/* box2 */}
-            <div className="sm:w-full md:w-[300px] lg:w-[220px] mb-5">
-              <div className="group shadow-md bg-neutral-100 h-[180px] flex justify-center items-center cursor-pointer relative">
-                <Image
-                  src="/Keyboard.png"
-                  width={150}
-                  height={100}
-                  alt="Keyboard"
-                />
-                <span className="bg-red-500 px-2 rounded-md text-white absolute top-0 left-0">-25%</span>
-                <span className="absolute top-1 right-1 text-red rounded-full">
-                  <Image
-                    className="cursor-pointer ml-44"
-                    src="/Heart.png"
-                    alt="icon-explorer"
-                    height={32}
-                    width={18}
-                  />
-                  <Image
-                    className="cursor-pointer mt-3 ml-44"
-                    src="/Eye.png"
-                    alt="icon-explorer"
-                    height={32}
-                    width={24}
-                  />
-                </span>
-
-                {/* Add to Cart */}
-                <button className="w-full absolute bottom-0 bg-black text-white px-4 py-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Add to Cart
-                </button>
-              </div>
-              <h1 className="font-bold font-sans pt-2">AK-900 Wired Keyboard</h1>
-              <span className="text-red-500 font-bold">$920</span>
-              <span className="text-gray-400 font-bold line-through ml-2">$1160</span>
-              <div className="flex space-x-1 ml-1 text-yellow-400 text-md pt-1 mb-5">
-                <img src="/Fivestar.png" alt="five star" />
-                <span className="text-gray-400 mt-1">(90)</span>
-              </div>
-            </div>
-
-            {/* box3 */}
-            <div className="sm:w-full md:w-[300px] lg:w-[220px] mb-5">
-              <div className="group relative shadow-md bg-neutral-100 cursor-pointer h-[180px] flex justify-center items-center">
-                <Image
-                  src="/Gamingmonitor.png"
-                  width={150}
-                  height={100}
-                  alt="Gaming Monitor"
-                />
-                <span className="bg-red-500 px-2 rounded-md text-white absolute top-0 left-0">-32%</span>
-                <span className="absolute top-1 right-1 text-red rounded-full">
-                  <Image
-                    className="cursor-pointer ml-44"
-                    src="/Heart.png"
-                    alt="icon-explorer"
-                    height={32}
-                    width={18}
-                  />
-                  <Image
-                    className="cursor-pointer mt-3 ml-44"
-                    src="/Eye.png"
-                    alt="icon-explorer"
-                    height={32}
-                    width={24}
-                  />
-                </span>
-
-                {/* Add to Cart */}
-                <button className="w-full absolute bottom-0 bg-black text-white px-4 py-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Add to Cart
-                </button>
-              </div>
-              <h1 className="font-bold font-sans pt-2">IPS LCD Gaming Monitor</h1>
-              <span className="text-red-500 font-bold">$1500</span>
-              <span className="text-gray-400 font-bold line-through ml-2">$2240</span>
-              <div className="flex space-x-1 ml-1 text-yellow-400 text-md pt-1 mb-5">
-                <img src="/Fivestar.png" alt="five star" />
-                <span className="text-gray-400 mt-1">(95)</span>
-              </div>
-            </div>
-
-            {/* box4 */}
-            <div className="sm:w-full md:w-[300px] lg:w-[220px] mb-5">
-              <div className="group relative shadow-md bg-neutral-100 cursor-pointer h-[180px] flex justify-center items-center">
-                <Image
-                  src="/Chair.png"
-                  width={100}
-                  height={100}
-                  alt="Chair"
-                />
-                <span className="bg-red-500 px-2 rounded-md text-white absolute top-0 left-0">-40%</span>
-                <span className="absolute top-1 right-1 text-red rounded-full">
-                  <Image
-                    className="cursor-pointer ml-44"
-                    src="/Heart.png"
-                    alt="icon-explorer"
-                    height={32}
-                    width={18}
-                  />
-                  <Image
-                    className="cursor-pointer mt-3 ml-44"
-                    src="/Eye.png"
-                    alt="icon-explorer"
-                    height={32}
-                    width={24}
-                  />
-                </span>
-
-                {/* Add to Cart */}
-                <button className="w-full absolute bottom-0 bg-black text-white px-4 py-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Add to Cart
-                </button>
-              </div>
-              <h1 className="font-bold font-sans pt-2">S-Series Comfort Chair</h1>
-              <span className="text-red-500 font-bold">$320</span>
-              <span className="text-gray-400 font-bold line-through ml-2">$630</span>
-              <div className="flex space-x-1 ml-1 text-yellow-400 text-md pt-1 mb-5">
-                <img src="/Fivestar.png" alt="five star" />
-                <span className="text-gray-400 mt-1">(99)</span>
-              </div>
-            </div>
+            ))}
           </div>
-        </div>
-      </div>
 
-      <div className="w-full flex justify-center items-center">
-        <div className="w-[80%] flex justify-center border-b-2 border-neutral-100 pb-10">
-          <button className="bg-red-500 hover:bg-red-600 py-2 px-5 text-white rounded-sm">
-            View All Products
-          </button>
+          {/* View All Button */}
+          <div className="flex justify-center mt-10">
+            <button className="bg-red-500 hover:bg-red-600 py-2 px-5 text-white rounded">
+              View All Products
+            </button>
+          </div>
         </div>
       </div>
     </main>
   );
 }
+
+const products = [
+  {
+    name: "HAVIT HV-G92 Gamepad",
+    price: "$120",
+    oldPrice: "$160",
+    discount: "-40%",
+    image: "/Gamepad.png",
+    rating: 88,
+  },
+  {
+    name: "AK-900 Wired Keyboard",
+    price: "$920",
+    oldPrice: "$1160",
+    discount: "-25%",
+    image: "/Keyboard.png",
+    rating: 90,
+  },
+  {
+    name: "IPS LCD Gaming Monitor",
+    price: "$1500",
+    oldPrice: "$2240",
+    discount: "-32%",
+    image: "/Gamingmonitor.png",
+    rating: 95,
+  },
+  {
+    name: "S-Series Comfort Chair",
+    price: "$320",
+    oldPrice: "$630",
+    discount: "-40%",
+    image: "/Chair.png",
+    rating: 99,
+  },
+];
 
 export default Freshsale;

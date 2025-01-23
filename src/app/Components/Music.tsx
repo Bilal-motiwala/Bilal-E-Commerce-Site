@@ -2,51 +2,30 @@ import Image from "next/image";
 
 function Music() {
     return (
-        // Container
         <div className="w-full flex justify-center items-center mt-10 mb-1">
-            {/* Box */}
-            <div className="sm:w-full md:w-[80%] lg:w-[70%] sm:p-5 md:pl-5 bg-gray-950 sm:h-[auto] md:h-[400px] flex sm:flex-col md:flex-row sm:justify-start md:justify-center sm:items-start md:items-center">
+            <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] bg-gray-950 p-6 rounded-lg flex flex-col md:flex-row items-center justify-between">
                 {/* Left Box */}
-                <div className="sm:w-full md:w-[50%]">
-                    <h3 className="text-green-500 font-bold">Categories</h3>
-                    <h1 className="text-white font-bold sm:text-md md:text-3xl lg:text-5xl pt-4">Enhance Your Music Experience</h1>
+                <div className="text-center md:text-left md:w-[50%] space-y-4">
+                    <h3 className="text-green-500 font-bold text-lg">Categories</h3>
+                    <h1 className="text-white font-bold text-2xl sm:text-3xl lg:text-4xl">Enhance Your Music Experience</h1>
 
-                    {/* Timer */}
-                    <div className="flex pt-5 pb-4 gap-x-4 sm:justify-start md:justify-center">
-                        <div className="bg-gray-50 w-[70px] h-[70px] rounded-[50%] flex flex-col justify-center items-center">
-                            <span className="font-bold text-lg">23</span>
-                            <span className="sm:text-xs md:text-sm">Hours</span>
-                        </div>
-                        <div className="bg-gray-50 w-[70px] h-[70px] rounded-[50%] flex flex-col justify-center items-center">
-                            <span className="font-bold text-lg">05</span>
-                            <span className="sm:text-xs md:text-sm">Days</span>
-                        </div>
-                        <div className="bg-gray-50 w-[70px] h-[70px] rounded-[50%] flex flex-col justify-center items-center">
-                            <span className="font-bold text-lg">59</span>
-                            <span className="sm:text-xs md:text-sm">Minutes</span>
-                        </div>
-                        <div className="bg-gray-50 w-[70px] h-[70px] rounded-[50%] flex flex-col justify-center items-center">
-                            <span className="font-bold text-lg">35</span>
-                            <span className="sm:text-xs md:text-sm">Seconds</span>
-                        </div>
+                    <div className="flex justify-center md:justify-start space-x-4 mt-5">
+                        {['23', '05', '59', '35'].map((value, index) => (
+                            <div key={index} className="bg-gray-50 w-[70px] h-[70px] rounded-full flex flex-col justify-center items-center">
+                                <span className="font-bold text-lg">{value}</span>
+                                <span className="text-xs md:text-sm">{['Hours', 'Days', 'Minutes', 'Seconds'][index]}</span>
+                            </div>
+                        ))}
                     </div>
 
-                    <button className="bg-green-500 hover:bg-green-600 sm:hidden md:block sm:px-3 md:px-7 sm:text-sm md:text-sm py-0 text-white font-bold rounded-sm h-10 mt-3">
+                    <button className="bg-green-500 hover:bg-green-600 px-7 py-2 text-white font-bold rounded-md mt-5 w-full md:w-auto">
                         Buy Now!
                     </button>
                 </div>
 
                 {/* Right Box */}
-                <div className="sm:w-full md:w-[40%] lg:w-[40%] pl-6">
-                    <Image
-                        src={"/JBLspeaker.png"}
-                        width={500}
-                        height={500}
-                        alt="JBL Speaker"
-                    />
-                    <button className="bg-green-500 hover:bg-green-600 sm:block md:hidden sm:px-3 md:px-7 sm:text-sm md:text-sm py-0 text-white font-bold rounded-sm h-10 mt-3">
-                        Buy Now!
-                    </button>
+                <div className="mt-6 md:mt-0 md:w-[45%] flex justify-center">
+                    <Image src="/JBLspeaker.png" width={500} height={500} alt="JBL Speaker" />
                 </div>
             </div>
         </div>

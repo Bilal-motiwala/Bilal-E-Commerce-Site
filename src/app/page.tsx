@@ -8,8 +8,7 @@ import Explore from "./Components/Explore";
 import Freshsale from "./Components/Freshsale";
 import Featured from "./Components/Featured";
 import Freedelvry from "./Components/Free";
-import Footer from "./Components/Footer";
-// import Signup from "./Components/Signup";
+import Footer from "./Components/Footer"; 
 
 export default function Home() {
   return (
@@ -24,7 +23,6 @@ export default function Home() {
     <Featured />
     <Freedelvry />
     <Footer />
-    {/* <Signup /> */}
     </>
      );
 }

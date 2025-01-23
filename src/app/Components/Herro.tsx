@@ -1,55 +1,55 @@
 import Image from "next/image";
 import Link from 'next/link';
 
-function Herro() {
+function Hero() {
     return (
-        <div className="w-full flex justify-center items-center">
-            <div className="sm:w-full md:w-full lg:w-[80%] flex flex-wrap">
-                {/* Left side */}
-                <div className='border-r-2 border-neutral-100 p-10 sm:hidden md:block pb-0'>
-                    <ul>
-                        <li className='leading-loose hover:underline cursor-pointer'>Woman&apos;s Fashion</li>
-                        <li className='leading-loose hover:underline cursor-pointer'>Men&apos;s Fashion</li>
-                        <li className='leading-loose hover:underline cursor-pointer'>Electronics</li>
-                        <li className='leading-loose hover:underline cursor-pointer'>Home & Lifestyle</li>
-                        <li className='leading-loose hover:underline cursor-pointer'>Medicine</li>
-                        <li className='leading-loose hover:underline cursor-pointer'>Sports & Outdoor</li>
-                        <li className='leading-loose hover:underline cursor-pointer'>Baby&apos;s & Toys</li>
-                        <li className='leading-loose hover:underline cursor-pointer'>Groceries & Pets</li>
-                        <li className='leading-loose hover:underline cursor-pointer'>Health & Beauty</li>
+        <div className="w-full flex justify-center items-center py-6">
+            <div className="container mx-auto flex flex-wrap gap-6">
+                {/* Left Sidebar */}
+                <div className="hidden md:block w-full lg:w-1/4 border-r-2 border-gray-200 p-4">
+                    <ul className="space-y-4">
+                        {[
+                            "Woman's Fashion",
+                            "Men's Fashion",
+                            "Electronics",
+                            "Home & Lifestyle",
+                            "Medicine",
+                            "Sports & Outdoor",
+                            "Baby's & Toys",
+                            "Groceries & Pets",
+                            "Health & Beauty"
+                        ].map((item, index) => (
+                            <li
+                                key={index}
+                                className="hover:underline cursor-pointer"
+                            >
+                                {item}
+                            </li>
+                        ))}
                     </ul>
                 </div>
 
-                {/* Right side */}
-                <div className='sm:w-full md:w-[650px] lg:w-[770px] sm:ml-0 md:ml-0 lg:ml-3 sm:mt-0 md:mt-10 sm:h-[250px] md:h-[280px] bg-black flex flex-wrap justify-between pt-6'>
-                    {/* Left content */}
-                    <div className='text-white sm:w-full md:w-[200px] pt-4 ml-5'>
-                        {/* Icon div */}
-                        <div className='flex gap-x-2 items-center'>
-                            <span></span>
-                            <span className='sm:text-[10px] md:text-xs'>iPhone 14 Series</span>
+                {/* Hero Section */}
+                <div className="flex-1 bg-black text-white p-6 rounded-lg flex flex-col md:flex-row items-center md:justify-between gap-6">
+                    {/* Text Content */}
+                    <div className="text-center md:text-left md:w-1/2">
+                        <div className="flex items-center gap-2 mb-2">
+                            <span className="bg-red-500 text-white text-xs px-2 py-1 rounded">New</span>
+                            <span className="text-sm">iPhone 14 Series</span>
                         </div>
-
-                        <h1 className='sm:text-md md:text-4xl font-bold my-6'>Up to 10% off Voucher</h1>
-                        <Link href={"#products"} className='underline underline-offset-4 hover:font-bold'>Shop Now-&gt;</Link>
+                        <h1 className="text-xl md:text-4xl font-bold mb-4">Up to 10% off Voucher</h1>
+                        <Link href="#products" className="underline hover:font-bold">
+                            Shop Now -&gt;
+                        </Link>
                     </div>
 
-                    {/* Spots
-                    <div className='w-[110px] h-[14px] top-[319px] left-[353px] gap-3 flex mt-60 sm:hidden md:block'>
-                        <div className='w-3 h-3 opacity-50 bg-[#FFFF] rounded-lg'></div>
-                        <div className='w-3 h-3 opacity-50 bg-[#FFFF] rounded-lg'></div>
-                        <div className='w-[14px] h-[14px] opacity-50 bg-[#DB4444] rounded-lg'></div>
-                        <div className='w-3 h-3 opacity-50 bg-[#FFFF] rounded-lg'></div>
-                        <div className='w-3 h-3 opacity-50 bg-[#FFFF] rounded-lg'></div>
-                    </div> */}
-
-                    {/* Right image */}
-                    <div className='sm:w-full md:w-auto'>
+                    {/* Image */}
+                    <div className="md:w-1/2 flex justify-center">
                         <Image
-                            src={"/Hero.png"}
+                            src="/Hero.png"
                             width={350}
                             height={200}
-                            alt='hero images'
+                            alt="Hero image"
                             className="object-contain"
                         />
                     </div>
@@ -59,4 +59,4 @@ function Herro() {
     );
 }
 
-export default Herro;
+export default Hero;
